@@ -1,2 +1,6 @@
-# simple-calculator
-A simple web calculator.
+# Simple Calculator 
+A simple web calculator made with **JS** and **OOP**.
+
+<br style="margin: 20px 0;" />
+
+## Demonstration
