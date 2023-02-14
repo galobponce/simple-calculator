@@ -7,11 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Calculator</title>
     <link rel="stylesheet" href="main.css">
+    <script src="app.js" defer></script>
 </head>
 
 <body>
 
     <div class="calculator-container">
+
+        <div class="output">
+            <div id="previous-operand"></div>
+            <div id="current-operand"></div>
+        </div>
+
         <button id="clear" class="button button--misc">AC</button>
         <button id="sign" class="button button--misc">+/-</button>
         <button id="delete" class="button button--misc">DEL</button>
@@ -32,17 +39,11 @@
         <button id="3" class="button button--number">3</button>
         <button id="plus" class="button button--operator"> + </button>
 
-        <button id="0" class="button button--number">0</button>
+        <button id="0" class="button button--number span-2">0</button>
         <button id="6" class="button button--number">,</button>
         <button id="equals" class="button button--operator"> = </button>
     </div>
 
-
-    <span class="result"></span>
-
-
-
-    <script src="app.js"></script>
 </body>
 
 </html>
