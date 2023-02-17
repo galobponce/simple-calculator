@@ -27,11 +27,7 @@ body {
 
 .button:hover,
 .button:focus {
-    opacity: 80%;
-}
-
-.button:active {
-    opacity: 60%;
+    opacity: 70%;
 }
 
 .button--number {
@@ -46,6 +42,10 @@ body {
     background-color: #FF9500;
 }
 
+.button--selected {
+    opacity: 70%;
+}
+
 .span-2 {
     grid-column: span 2;
 }
@@ -58,7 +58,7 @@ body {
 .calculator-container {
     display: grid;
     grid-template-columns: repeat(4, 100px);
-    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 100px);
 
     justify-content: center;
     align-content: center;
@@ -86,13 +86,8 @@ body {
     word-break: break-all;
 }
 
-#previous-operand {
-    color: #FFF8;
-    font-size: 1.3rem;
-}
-
 #current-operand {
-    font-size: 2rem;
+    font-size: 3.2rem;
 }
 
 /* End Output Container */
