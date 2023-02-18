@@ -62,6 +62,12 @@ class Calculator {
         });
 
 
+        $decimalButton.addEventListener('click', () => {
+            this.addDecimal();
+            this.updateDisplay();
+        });
+
+
         $calculateButton.addEventListener('click', () => {
             this.calculate();
             this.updateDisplay();
@@ -92,6 +98,13 @@ class Calculator {
         }
 
         this.currentOperand = this.currentOperand.slice(0, -1);
+    }
+
+
+    addDecimal() {
+        if (this.currentOperand.includes('.')) return;
+
+        this.currentOperand += '.';
     }
 
 
@@ -127,27 +140,32 @@ class Calculator {
 
 
     calculate() {
+        let result;
+
         switch (this.operation) {
+            // Round result to 4 decimals max using EPSILON 
+            // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON)
 
             case '+':
-                this.currentOperand = Number(this.previousOperand) + Number(this.currentOperand);
+                result = Number(this.previousOperand) + Number(this.currentOperand);
+                this.currentOperand = Math.round((result + Number.EPSILON) * 10000) / 10000;
                 break;
 
             case '-':
-                this.currentOperand = Number(this.previousOperand) - Number(this.currentOperand);
+                result = Number(this.previousOperand) - Number(this.currentOperand);
+                this.currentOperand = Math.round((result + Number.EPSILON) * 10000) / 10000;
                 break;
 
             case '÷':
                 if (this.currentOperand === '0') return; // Does not allow to divide by 0
 
-                // Round result to 4 decimals max using EPSILON 
-                // (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON)
-                const result = Number(this.previousOperand) / Number(this.currentOperand);
+                result = Number(this.previousOperand) / Number(this.currentOperand);
                 this.currentOperand = Math.round((result + Number.EPSILON) * 10000) / 10000;
                 break;
 
             case 'x':
-                this.currentOperand = Number(this.previousOperand) * Number(this.currentOperand);
+                result = Number(this.previousOperand) * Number(this.currentOperand);
+                this.currentOperand = Math.round((result + Number.EPSILON) * 10000) / 10000;
                 break;
 
             default:
