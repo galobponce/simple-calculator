@@ -76,6 +76,13 @@ class Calculator {
 
 
     setOperation(operation) {
+
+
+        // If there is a concatenation of calculations
+        if (this.operation) {
+            this.calculate();
+        }
+
         this.previousOperand = this.currentOperand;
         this.operation = operation;
         this.currentOperand = '0';
